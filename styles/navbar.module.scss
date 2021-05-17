@@ -1,5 +1,5 @@
 .navOpen {
-  background-color: grey;
+  background-color: #dcbda2;
   height: 50px;
   display: flex;
   width: 20%;
@@ -16,7 +16,7 @@
     span {
       width: 20px;
       height: 2px;
-      background-color: white;
+      background-color: black;
     }
   }
 
@@ -28,14 +28,14 @@
 
     a {
       text-decoration: none;
-      color: white;
+      color: #000955;
       font-size: 1.2rem;
     }
   }
 }
 
 .navClose {
-  background-color: grey;
+  background-color: #dcbda2;
   height: 50px;
   display: flex;
   width: 2.5%;
@@ -52,7 +52,7 @@
     span {
       width: 20px;
       height: 2px;
-      background-color: white;
+      background-color: black;
     }
   }
 }
