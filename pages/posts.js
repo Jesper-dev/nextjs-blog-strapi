@@ -5,12 +5,11 @@ import Chat from "../components/Chat";
 
 export default function posts() {
   const [posts, setPosts] = useState([]);
-
   useEffect(async () => {
-    const result = await axios.get("http://www.localhost:1337/posts");
+    const result = await axios.get(`${process.env.URL}/posts`);
     setPosts(result?.data);
   }, []);
-  console.log(posts);
+
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.postsWrapper}>
@@ -19,7 +18,7 @@ export default function posts() {
             <div key={item.id} className={styles.postContainer}>
               <h1>{item.postTitle}</h1>
               {item.postImg.length > 0 ? (
-                <img src={"http://www.localhost:1337" + item.postImg[0].url} />
+                <img src={process.env.URL + item.postImg[0].url} />
               ) : null}
               <p>{item.postBody}</p>
               <span>{item.postDate}</span>

@@ -7,7 +7,9 @@ import styles from "../styles/layout.module.scss";
 export default function Layout({ children }) {
   const [data, setData] = useState({});
   useEffect(async () => {
-    const result = await axios.get("http://www.localhost:1337/home-page");
+    const result = await axios.get(
+      "https://sleepy-river-26898.herokuapp.com/home-page"
+    );
     setData(result?.data);
   }, []);
   return (

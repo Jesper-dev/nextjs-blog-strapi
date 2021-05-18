@@ -7,12 +7,12 @@ export default function Home() {
   const [imgUrl, setImgUrl] = useState("");
 
   useEffect(async () => {
-    const result = await axios.get("http://www.localhost:1337/home-page");
+    const result = await axios.get(`${process.env.URL}/home-page`);
     setData(result?.data);
     setImgUrl(result?.data.homePageImg[0].url);
   }, []);
 
-  let backgroundImageUrl = `url(http://www.localhost:1337${imgUrl})`;
+  let backgroundImageUrl = `url(${process.env.URL}${imgUrl})`;
 
   return (
     <>
