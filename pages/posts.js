@@ -14,7 +14,12 @@ export default function posts({ posts, layoutData }) {
               <div key={item.id} className={styles.postContainer}>
                 <h1>{item.postTitle}</h1>
                 {item.postImg.length > 0 ? (
-                  <img src={process.env.URL + item.postImg[0].url} />
+                  <img
+                    src={
+                      "https://sleepy-river-26898.herokuapp.com" +
+                      item.postImg[0].url
+                    }
+                  />
                 ) : null}
                 <p>{item.postBody}</p>
                 <span>{item.postDate}</span>
