@@ -17,24 +17,34 @@
     justify-content: flex-end;
     align-items: center;
     height: 70%;
-    border: 1px solid #184267;
+    // border: 1px solid #184267;
     border-radius: 10px;
     width: 90%;
+    overflow: auto;
 
-    span {
-      text-align: center;
+    .msg {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      width: 90%;
       margin-bottom: 8px;
-      font-size: 1.1rem;
-      border-bottom: 1px solid #184267;
-      width: 100%;
+      font-size: 1.2rem;
+      border: 1px solid #184267;
+      border-radius: 20px;
+      padding: 4px;
+
+      .msgName {
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
     }
   }
 
   input {
     outline: none;
     border: 2px solid #184267;
-    padding: 8px;
-    margin: 16px;
+    padding: 8px 16px;
+    margin: 8px;
   }
 
   button {
