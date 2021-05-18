@@ -22,7 +22,7 @@ export default function Layout({ children }) {
         ></meta>
         <meta
           property="og:image"
-          content={process.env.URL + data.homePageImg[0].url}
+          content={process.env.URL + data.homePageImg.url}
         ></meta>
       </Head>
       <Navbar data={data} />
