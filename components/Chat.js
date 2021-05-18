@@ -34,7 +34,7 @@ export default function Chat() {
             <>
               <div key={item.id} className={styles.msg}>
                 <span>{item.msg}</span>{" "}
-                <span className={styles.msgName}>{item.name}</span>
+                <span className={styles.msgName}>Name: {item.name}</span>
               </div>
             </>
           );
