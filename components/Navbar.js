@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/navbar.module.scss";
 import Link from "next/link";
+import axios from "axios";
 
 export default function Navbar({ data }) {
   const [openNav, setOpenNav] = useState(true);

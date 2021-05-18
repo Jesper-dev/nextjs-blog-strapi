@@ -4,25 +4,13 @@ import Head from "next/head";
 import Navbar from "./Navbar";
 import styles from "../styles/layout.module.scss";
 
-export default function Layout({ children }) {
-  const [data, setData] = useState({});
-  const [imgUrl, setImgUrl] = useState("");
-  useEffect(async () => {
-    const result = await axios.get(`${process.env.URL}/home-page`);
-    setData(result?.data);
-    setImgUrl(result?.data.homePageImg[0].url);
-  }, []);
-  console.log(data);
+export default function Layout({ children, data }) {
   return (
     <>
       <Head>
         <title>Next Js Blog</title>
         <meta property="og:title" content="Next JS Blog" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0"
-        ></meta>
-        <meta property="og:image" content={process.env.URL + imgUrl}></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Navbar data={data} />
       <main className={styles.main}>{children}</main>
