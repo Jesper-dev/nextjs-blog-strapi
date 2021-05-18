@@ -11,6 +11,13 @@
   align-items: center;
   box-shadow: 0px 0px 60px 2px black;
 
+  @media screen and (max-width: 500px) {
+    margin-top: 56px;
+    width: 90%;
+    height: 80%;
+    position: static;
+  }
+
   .msgContainer {
     display: flex;
     flex-flow: column nowrap;
@@ -20,7 +27,7 @@
     // border: 1px solid #184267;
     border-radius: 10px;
     width: 90%;
-    overflow: auto;
+    overflow: scroll;
 
     .msg {
       display: flex;

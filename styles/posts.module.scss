@@ -6,15 +6,25 @@
   width: 100%;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 500px) {
+    height: 100vh;
+    flex-flow: column nowrap;
+  }
 }
 
-.postWrapper {
+.postsWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   height: 90vh;
   width: 100%;
+
+  @media screen and (max-width: 500px) {
+    align-items: center;
+    height: 100vh;
+  }
 
   .postContainer {
     font-family: "Roboto", sans-serif;
@@ -38,6 +48,15 @@
     }
     span {
       font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 500px) {
+      width: 90%;
+
+      img {
+        height: 150px;
+        width: 250px;
+      }
     }
   }
 }

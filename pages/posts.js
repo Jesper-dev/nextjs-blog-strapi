@@ -13,7 +13,7 @@ export default function posts() {
   console.log(posts);
   return (
     <div className={styles.pageWrapper}>
-      <div className={styles.postWrapper}>
+      <div className={styles.postsWrapper}>
         {posts.map((item) => {
           return (
             <div key={item.id} className={styles.postContainer}>
