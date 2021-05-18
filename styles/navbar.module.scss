@@ -10,6 +10,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    animation: hamburgerAnim 0.5s;
+    animation-delay: 0.1s;
     height: 40%;
     margin-left: 8px;
     cursor: pointer;
@@ -32,27 +34,59 @@
       font-size: 1.2rem;
     }
   }
+
+  @keyframes hamburgerAnim {
+    0% {
+      height: 70%;
+    }
+    50% {
+      height: 20%;
+    }
+
+    100% {
+      height: 40%;
+    }
+  }
 }
 
 .navClose {
   background-color: #dcbda2;
   height: 50px;
   display: flex;
-  width: 2.5%;
+  width: 2%;
   align-items: center;
   transition: all 0.5s;
 
   .hamburgerContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+    animation: hamburgerAnimClose 1s;
+    animation-delay: 0.3s;
     height: 40%;
+    width: 40%;
     margin-left: 8px;
     cursor: pointer;
     span {
-      width: 20px;
-      height: 2px;
+      width: 2px;
+      height: 20px;
       background-color: black;
+    }
+  }
+
+  @keyframes hamburgerAnimClose {
+    0% {
+      width: 20%;
+    }
+    30% {
+      width: 40%;
+    }
+    50% {
+      width: 80%;
+    }
+    100% {
+      width: 40%;
     }
   }
 }
