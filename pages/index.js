@@ -6,9 +6,7 @@ import Layout from "../components/Layout";
 export default function Home({ strapiData }) {
   const [imgUrl, setImgUrl] = useState("");
 
-  useEffect(async () => {
-    setImgUrl(strapiData.homePageImg[0].url);
-  }, []);
+  setImgUrl(strapiData.homePageImg[0].url);
 
   let backgroundImageUrl = `url(${process.env.URL}${imgUrl})`;
 
