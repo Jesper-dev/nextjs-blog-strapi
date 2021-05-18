@@ -6,9 +6,11 @@ import styles from "../styles/layout.module.scss";
 
 export default function Layout({ children }) {
   const [data, setData] = useState({});
+  const [imgUrl, setImgUrl] = useState("");
   useEffect(async () => {
     const result = await axios.get(`${process.env.URL}/home-page`);
     setData(result?.data);
+    setImgUrl(result?.data.homePageImg[0].url);
   }, []);
   console.log(data);
   return (
@@ -20,10 +22,7 @@ export default function Layout({ children }) {
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         ></meta>
-        <meta
-          property="og:image"
-          content={process.env.URL + data.homePageImg.url}
-        ></meta>
+        <meta property="og:image" content={process.env.URL + imgUrl}></meta>
       </Head>
       <Navbar data={data} />
       <main className={styles.main}>{children}</main>
