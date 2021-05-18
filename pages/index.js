@@ -8,7 +8,7 @@ export default function Home({ strapiData }) {
 
   setImgUrl(strapiData.homePageImg[0].url);
 
-  let backgroundImageUrl = `url(https://sleepy-river-26898.herokuapp.com/${imgUrl})`;
+  let backgroundImageUrl = `url(https://sleepy-river-26898.herokuapp.com${imgUrl})`;
 
   return (
     <>
