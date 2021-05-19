@@ -10,12 +10,7 @@ export default function posts({ posts }) {
             <div key={item.id} className={styles.postContainer}>
               <h1>{item.postTitle}</h1>
               {item.postImg.length > 0 ? (
-                <img
-                  src={
-                    "https://sleepy-river-26898.herokuapp.com" +
-                    item.postImg[0].url
-                  }
-                />
+                <img src={process.env.SERVER_URL + item.postImg[0].url} />
               ) : null}
               <p>{item.postBody}</p>
               <span>{item.postDate}</span>
@@ -29,7 +24,7 @@ export default function posts({ posts }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`${process.env.URL}/posts`);
+  const res = await fetch(`${process.env.SERVER_URL}/posts`);
   const data = await res.json();
   return { props: { posts: data } };
 }

@@ -3,11 +3,11 @@ import styles from "../styles/Home.module.scss";
 
 export default function Home({ strapiData }) {
   const [imgUrl, setImgUrl] = useState("");
-
+  console.log(process.env.SERVER_URL);
   useEffect(() => {
     setImgUrl(strapiData.homePageImg[0].url);
   }, []);
-  let backgroundImageUrl = `url(${process.env.URL}${imgUrl})`;
+  let backgroundImageUrl = `url(${process.env.SERVER_URL}${imgUrl})`;
   return (
     <>
       <div
@@ -21,7 +21,7 @@ export default function Home({ strapiData }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`${process.env.URL}/home-page`);
+  const res = await fetch(`${process.env.SERVER_URL}/home-page`);
   const data = await res.json();
   return { props: { strapiData: data } };
 }
