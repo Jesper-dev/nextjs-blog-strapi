@@ -3,7 +3,7 @@ export default function posts({ strapiData }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`${process.env.URL}/home-page`);
+  const res = await fetch(process.env.STRAPI + "/home-page");
   const data = await res.json();
   return { props: { strapiData: data } };
 }

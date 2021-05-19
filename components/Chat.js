@@ -7,7 +7,7 @@ export default function Chat() {
   const [msg, setMsg] = useState("");
   const [name, setName] = useState("");
   useEffect(async () => {
-    const result = await axios.get(`${process.env.URL}/chats`);
+    const result = await axios.get(`${process.env.STRAPI}/chats`);
     setChatList(result?.data);
   }, []);
 
@@ -16,12 +16,12 @@ export default function Chat() {
       alert("You missed something there bud");
       return;
     }
-    axios.post(`${process.env.URL}/chats`, {
+    axios.post(`${process.env.STRAPI}/chats`, {
       msg: msg,
       name: name,
     });
     setMsg("");
-    const result = await axios.get(`${process.env.URL}/chats`);
+    const result = await axios.get(`${process.env.STRAPI}/chats`);
     setChatList(result?.data);
   };
 
