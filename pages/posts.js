@@ -1,5 +1,6 @@
 import styles from "../styles/posts.module.scss";
 import Chat from "../components/Chat";
+import { fetchAPI } from "../lib/api";
 
 export default function posts({ posts }) {
   return (
