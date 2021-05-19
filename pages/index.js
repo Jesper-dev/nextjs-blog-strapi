@@ -1,27 +1,31 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.scss";
+import { fetchAPI } from "../lib/api";
+import { getStrapiMedia } from "../lib/media";
 
-export default function Home({ strapiData }) {
-  const [imgUrl, setImgUrl] = useState("");
-  console.log(process.env.STRAPI);
-  useEffect(() => {
-    setImgUrl(strapiData.homePageImg[0].url);
-  }, []);
-  let backgroundImageUrl = process.env.STRAPI + imgUrl;
+const Home = ({ strapiData, url }) => {
+  console.log(url);
+  console.log(process.env.NEXT_PUBLIC_STRAPI_HOME);
+
+  const imgUrl = `url(${url})`;
   return (
     <>
-      <div
-        style={{ backgroundImage: backgroundImageUrl }}
-        className={styles.homeContainer}
-      >
+      <div style={{ backgroundImage: imgUrl }} className={styles.homeContainer}>
         <h1 className={styles.animTypewriter}>{strapiData.title}</h1>
       </div>
     </>
   );
+};
+
+export async function getStaticProps() {
+  const [strapiData] = await Promise.all([fetchAPI("/home-page")]);
+  const url = getStrapiMedia("/uploads/laptop_Code_629524308a.jpg");
+  return {
+    props: {
+      strapiData,
+      url,
+    },
+  };
 }
 
-export async function getServerSideProps() {
-  const res = await fetch(process.env.STRAPI + "/home-page");
-  const data = await res.json();
-  return { props: { strapiData: data } };
-}
+export default Home;

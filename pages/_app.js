@@ -1,10 +1,15 @@
+import App from "next/app";
+import Head from "next/head";
+import styles from "../styles/globals.scss";
+import { fetchAPI } from "../lib/api";
 import Layout from "../components/Layout";
-import "../styles/globals.scss";
 
-export default function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <Layout>
       <Component {...pageProps} />
     </Layout>
   );
-}
+};
+
+export default MyApp;
