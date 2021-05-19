@@ -23,8 +23,11 @@ export default function posts({ posts }) {
   );
 }
 
-export async function getServerSideProps() {
-  const res = await fetch(`${process.env.STRAPI}/posts`);
-  const data = await res.json();
-  return { props: { posts: data } };
+export async function getStaticProps() {
+  const [posts] = await Promise.all([fetchAPI("/posts")]);
+  return {
+    props: {
+      posts,
+    },
+  };
 }

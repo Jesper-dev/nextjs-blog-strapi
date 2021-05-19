@@ -8,6 +8,7 @@ const Home = ({ strapiData, url }) => {
   console.log(process.env.NODE_ENV);
 
   const imgUrl = `url(${url})`;
+  console.log(imgUrl);
   return (
     <>
       <div style={{ backgroundImage: imgUrl }} className={styles.homeContainer}>
