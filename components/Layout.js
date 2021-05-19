@@ -21,6 +21,7 @@ export default function Layout({ children }) {
         <meta property="og:title" content="Next JS Blog" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:image" content={img}></meta>
+        <meta property="og:image:url" content={img}></meta>
         <meta
           property="og:url"
           content="https://nextjs-blog-strapi.vercel.app/"
