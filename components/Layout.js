@@ -12,9 +12,8 @@ export default function Layout({ children }) {
     );
     setData(res.data);
   }, []);
-  const img = process.env.STRAPI + "/uploads/welcome_Img_Blog_ba159208bd.PNG";
+  const img = process.env.NEXT_PUBLIC_LINK_IMG_URL;
 
-  //TODO Få img i meta og:image att fungera
   return (
     <>
       <Head>
@@ -22,6 +21,10 @@ export default function Layout({ children }) {
         <meta property="og:title" content="Next JS Blog" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:image" content={img}></meta>
+        <meta
+          property="og:url"
+          content="https://nextjs-blog-strapi.vercel.app/"
+        ></meta>
       </Head>
       <Navbar data={data} />
       <main className={styles.main}>{children}</main>

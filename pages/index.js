@@ -4,14 +4,16 @@ import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
 
 const Home = ({ strapiData, url }) => {
-  console.log(url);
-  console.log(process.env.NODE_ENV);
-
-  const imgUrl = `url(${url})`;
+  const imgUrl = `url(${process.env.NEXT_PUBLIC_HOME_PAGE_IMG_URL})`;
   console.log(imgUrl);
   return (
     <>
-      <div style={{ backgroundImage: imgUrl }} className={styles.homeContainer}>
+      <div
+        style={{
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_HOME_PAGE_IMG_URL})`,
+        }}
+        className={styles.homeContainer}
+      >
         <h1 className={styles.animTypewriter}>{strapiData.title}</h1>
       </div>
     </>
@@ -20,11 +22,9 @@ const Home = ({ strapiData, url }) => {
 
 export async function getStaticProps() {
   const [strapiData] = await Promise.all([fetchAPI("/home-page")]);
-  const url = getStrapiMedia("/uploads/code_Background_2f91fccabf.jpg");
   return {
     props: {
       strapiData,
-      url,
     },
   };
 }
