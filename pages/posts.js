@@ -6,30 +6,28 @@ import Layout from "../components/Layout";
 
 export default function posts({ posts, layoutData }) {
   return (
-    <Layout data={layoutData}>
-      <div className={styles.pageWrapper}>
-        <div className={styles.postsWrapper}>
-          {posts.map((item) => {
-            return (
-              <div key={item.id} className={styles.postContainer}>
-                <h1>{item.postTitle}</h1>
-                {item.postImg.length > 0 ? (
-                  <img
-                    src={
-                      "https://sleepy-river-26898.herokuapp.com" +
-                      item.postImg[0].url
-                    }
-                  />
-                ) : null}
-                <p>{item.postBody}</p>
-                <span>{item.postDate}</span>
-              </div>
-            );
-          })}
-        </div>
-        <Chat />
+    <div className={styles.pageWrapper}>
+      <div className={styles.postsWrapper}>
+        {posts.map((item) => {
+          return (
+            <div key={item.id} className={styles.postContainer}>
+              <h1>{item.postTitle}</h1>
+              {item.postImg.length > 0 ? (
+                <img
+                  src={
+                    "https://sleepy-river-26898.herokuapp.com" +
+                    item.postImg[0].url
+                  }
+                />
+              ) : null}
+              <p>{item.postBody}</p>
+              <span>{item.postDate}</span>
+            </div>
+          );
+        })}
       </div>
-    </Layout>
+      <Chat />
+    </div>
   );
 }
 

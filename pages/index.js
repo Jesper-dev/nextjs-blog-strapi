@@ -6,20 +6,18 @@ import Layout from "../components/Layout";
 export default function Home({ strapiData }) {
   const [imgUrl, setImgUrl] = useState("");
 
-  setImgUrl(strapiData.homePageImg[0].url);
-
+  useEffect(() => {
+    setImgUrl(strapiData.homePageImg[0].url);
+  }, []);
   let backgroundImageUrl = `url(https://sleepy-river-26898.herokuapp.com${imgUrl})`;
-
   return (
     <>
-      <Layout data={strapiData}>
-        <div
-          style={{ backgroundImage: backgroundImageUrl }}
-          className={styles.homeContainer}
-        >
-          <h1 className={styles.animTypewriter}>{strapiData.title}</h1>
-        </div>
-      </Layout>
+      <div
+        style={{ backgroundImage: backgroundImageUrl }}
+        className={styles.homeContainer}
+      >
+        <h1 className={styles.animTypewriter}>{strapiData.title}</h1>
+      </div>
     </>
   );
 }

@@ -4,7 +4,12 @@ import Head from "next/head";
 import Navbar from "./Navbar";
 import styles from "../styles/layout.module.scss";
 
-export default function Layout({ children, data }) {
+export default function Layout({ children }) {
+  const [data, setData] = useState({});
+  useEffect(async () => {
+    const res = await axios.get(process.env.URL + "/home-page");
+    setData(res?.data);
+  }, []);
   return (
     <>
       <Head>

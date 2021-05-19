@@ -1,11 +1,7 @@
 import Layout from "../components/Layout";
 
 export default function posts({ strapiData }) {
-  return (
-    <Layout data={strapiData}>
-      <h1>About page here</h1>
-    </Layout>
-  );
+  return <h1>About page here</h1>;
 }
 
 export async function getServerSideProps() {
