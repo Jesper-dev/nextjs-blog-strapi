@@ -20,7 +20,7 @@ const Home = ({ strapiData, url }) => {
 
 export async function getStaticProps() {
   const [strapiData] = await Promise.all([fetchAPI("/home-page")]);
-  const url = getStrapiMedia("/uploads/code_Background_e6e589cc51.jpg");
+  const url = getStrapiMedia("/uploads/code_Background_2f91fccabf.jpg");
   return {
     props: {
       strapiData,

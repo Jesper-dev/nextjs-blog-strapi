@@ -13,6 +13,8 @@ export default function Layout({ children }) {
     setData(res.data);
   }, []);
   const img = process.env.STRAPI + "/uploads/welcome_Img_Blog_ba159208bd.PNG";
+
+  //TODO Få img i meta og:image att fungera
   return (
     <>
       <Head>
