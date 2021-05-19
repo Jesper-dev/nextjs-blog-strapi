@@ -8,8 +8,7 @@ export default function Home({ strapiData }) {
     setImgUrl(strapiData.homePageImg[0].url);
   }, []);
   // let backgroundImageUrl = `url(${process.env.SERVER_URL}${imgUrl})`;
-  let backgroundImageUrl =
-    "https://sleepy-river-26898.herokuapp.com/uploads/code_Background_757fa3dc6e.jpg";
+  let backgroundImageUrl = process.env.SERVER_URL + imgUrl;
   return (
     <>
       <div
@@ -22,8 +21,8 @@ export default function Home({ strapiData }) {
   );
 }
 
-export async function getServerSideProps() {
-  const res = await fetch("https://sleepy-river-26898.herokuapp.com/home-page");
+export async function getStaticProps() {
+  const res = await fetch(process.env.SERVER_URL + "/home-page");
   const data = await res.json();
   return { props: { strapiData: data } };
 }

@@ -23,7 +23,7 @@ export default function posts({ posts }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch(`${process.env.SERVER_URL}/posts`);
   const data = await res.json();
   return { props: { posts: data } };

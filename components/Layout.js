@@ -8,7 +8,7 @@ export default function Layout({ children }) {
   const [data, setData] = useState({});
   useEffect(async () => {
     const res = await axios.get(process.env.SERVER_URL + "/home-page");
-    setData(res?.data);
+    setData(res.data);
   }, []);
   const img =
     process.env.SERVER_URL + "/uploads/welcome_Img_Blog_ba159208bd.PNG";
