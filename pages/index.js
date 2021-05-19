@@ -3,12 +3,11 @@ import styles from "../styles/Home.module.scss";
 
 export default function Home({ strapiData }) {
   const [imgUrl, setImgUrl] = useState("");
-  console.log(process.env.SERVER_URL);
+  console.log(process.env.URL);
   useEffect(() => {
     setImgUrl(strapiData.homePageImg[0].url);
   }, []);
-  // let backgroundImageUrl = `url(${process.env.SERVER_URL}${imgUrl})`;
-  let backgroundImageUrl = process.env.SERVER_URL + imgUrl;
+  let backgroundImageUrl = process.env.URL + imgUrl;
   return (
     <>
       <div
@@ -21,8 +20,8 @@ export default function Home({ strapiData }) {
   );
 }
 
-export async function getStaticProps() {
-  const res = await fetch(process.env.SERVER_URL + "/home-page");
+export async function getServerSideProps() {
+  const res = await fetch("https://sleepy-river-26898.herokuapp.com/home-page");
   const data = await res.json();
   return { props: { strapiData: data } };
 }
