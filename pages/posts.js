@@ -1,8 +1,5 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import styles from "../styles/posts.module.scss";
 import Chat from "../components/Chat";
-import Layout from "../components/Layout";
 
 export default function posts({ posts }) {
   return (

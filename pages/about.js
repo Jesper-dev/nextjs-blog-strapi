@@ -1,5 +1,3 @@
-import Layout from "../components/Layout";
-
 export default function posts({ strapiData }) {
   return <h1>About page here</h1>;
 }

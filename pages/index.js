@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../styles/home.module.scss";
+import styles from "../styles/Home.module.scss";
 
 export default function Home({ strapiData }) {
   const [imgUrl, setImgUrl] = useState("");
