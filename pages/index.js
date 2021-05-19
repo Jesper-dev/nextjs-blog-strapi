@@ -7,7 +7,9 @@ export default function Home({ strapiData }) {
   useEffect(() => {
     setImgUrl(strapiData.homePageImg[0].url);
   }, []);
-  let backgroundImageUrl = `url(${process.env.SERVER_URL}${imgUrl})`;
+  // let backgroundImageUrl = `url(${process.env.SERVER_URL}${imgUrl})`;
+  let backgroundImageUrl =
+    "https://sleepy-river-26898.herokuapp.com/uploads/code_Background_757fa3dc6e.jpg";
   return (
     <>
       <div
