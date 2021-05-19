@@ -5,7 +5,7 @@ import { getStrapiMedia } from "../lib/media";
 
 const Home = ({ strapiData, url }) => {
   console.log(url);
-  console.log(process.env.NEXT_PUBLIC_STRAPI_HOME);
+  console.log(process.env.NODE_ENV);
 
   const imgUrl = `url(${url})`;
   return (
