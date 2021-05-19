@@ -4,7 +4,7 @@ import styles from "../styles/posts.module.scss";
 import Chat from "../components/Chat";
 import Layout from "../components/Layout";
 
-export default function posts({ posts, layoutData }) {
+export default function posts({ posts }) {
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.postsWrapper}>
@@ -32,11 +32,7 @@ export default function posts({ posts, layoutData }) {
 }
 
 export async function getServerSideProps() {
-  // Fetch data from external API
   const res = await fetch(`${process.env.URL}/posts`);
   const data = await res.json();
-  const layoutRes = await fetch(`${process.env.URL}/home-page`);
-  const layoutData = await layoutRes.json();
-  // Pass data to the page via props
-  return { props: { posts: data, layoutData } };
+  return { props: { posts: data } };
 }

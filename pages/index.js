@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../styles/Home.module.scss";
-import axios from "axios";
-import Layout from "../components/Layout";
+import styles from "../styles/home.module.scss";
 
 export default function Home({ strapiData }) {
   const [imgUrl, setImgUrl] = useState("");
@@ -9,7 +7,7 @@ export default function Home({ strapiData }) {
   useEffect(() => {
     setImgUrl(strapiData.homePageImg[0].url);
   }, []);
-  let backgroundImageUrl = `url(https://sleepy-river-26898.herokuapp.com${imgUrl})`;
+  let backgroundImageUrl = `url(${process.env.URL}${imgUrl})`;
   return (
     <>
       <div
@@ -23,9 +21,7 @@ export default function Home({ strapiData }) {
 }
 
 export async function getServerSideProps() {
-  // Fetch data from external API
   const res = await fetch(`${process.env.URL}/home-page`);
   const data = await res.json();
-  // Pass data to the page via props
   return { props: { strapiData: data } };
 }

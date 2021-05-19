@@ -5,7 +5,7 @@ export default function MyApp({ Component, pageProps, strapiData }) {
   console.log(strapiData);
   return (
     <Layout>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </Layout>
   );
 }
